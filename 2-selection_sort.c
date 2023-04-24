@@ -31,7 +31,7 @@ void selection_sort(int *array, size_t size)
 					small = j;
 				}
 			}
-			if (i != m)
+			if (i != small)
 			{
 				temp = array[i];
 				array[i] = array[small];
