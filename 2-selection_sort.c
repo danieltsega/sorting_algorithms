@@ -18,7 +18,7 @@ void selection_sort(int *array, size_t size)
 	if (size >= 2)
 	{
 
-		for (i = 0; i < size - 1; i++)
+		for (i = 0; i < size; i++)
 		{
 
 			small = i;
