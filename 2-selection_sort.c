@@ -15,24 +15,26 @@ void selection_sort(int *array, size_t size)
 	int temp, small;
 	size_t i, j;
 
-	for (i = 0; i < size - 1; i++)
+	if (size >= 2)
 	{
 
-		small = i;
-		for (j = i + 1; j < size; j++)
+		for (i = 0; i < size - 1; i++)
 		{
 
-			if (array[j] < array[small])
+			small = i;
+			for (j = i + 1; j < size; j++)
 			{
 
-				small = j;
+				if (array[j] < array[small])
+				{
 
+					small = j;
+				}
 			}
+			temp = array[i];
+			array[i] = array[small];
+			array[small] = temp;
+			print_array(array, size);
 		}
-
-		temp = array[i];
-		array[i] = array[small];
-		array[small] = temp;
-		print_array(array, size);
 	}
 }
