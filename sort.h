@@ -30,9 +30,13 @@ void print_list(const listint_t *list);
 
 void bubble_sort(int *array, size_t size);
 
-/**The prototype for selection sort**/
+/**The prototype for insertion sort**/
 
 void insertion_sort_list(listint_t **list);
+
+/**The prototype for selection sort**/
+
+void selection_sort(int *array, size_t size);
 
 
 #endif
