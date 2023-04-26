@@ -5,7 +5,7 @@
  * sort algorithm
  *
  * @array: a pointer to an array
- * @size: the size of the array
+ * @size: size of the array
  * Return: no return
  */
 
@@ -17,8 +17,8 @@ void quick_sort(int *array, size_t size)
 
 		quickSortAlgo(array, 0, size - 1, size);
 	}
-}
 
+}
 
 /**
  * quickSortAlgo - a quick sort algorithm
@@ -34,47 +34,40 @@ void quick_sort(int *array, size_t size)
 void quickSortAlgo(int *array, int low, int high, int size)
 {
 
-	int pivot_value, i;
+	int pivot, i, j;
+	int temp;
 
 	if (low < high)
 	{
 
-		pivot_value = array[high];
+		pivot = high;
 		i = low;
-
-		for (j = low; j <= high; j++)
+		for (j = low; j < high; j++)
 		{
 
-			if (array[j] <= pivot_value)
+			if (array[j] < array[pivot])
 			{
 
-				swap(&array[i], &array[j]);
-				print_array(array, size);
+				if (j != i)
+				{
+
+					temp = array[j];
+					array[j] = array[i];
+					array[i] = temp;
+					print_array(array, size);
+				}
 				i++;
 			}
 		}
-		swap(&array[i], &array[high]);
-		print_array(array, size);
+		if (i != pivot && array[i] != array[pivot])
+		{
 
+			temp = array[i];
+			array[i] = array[pivot];
+			array[pivot] = temp;
+			print_array(array, size);
+		}
 		quickSortAlgo(array, low, i - 1, size);
 		quickSortAlgo(array, i + 1, high, size);
-
 	}
-}
-
-/**
- * swap - a swap function
- * @a: apointer to first array
- * @b: a pointer to second array
- * Return: no return
- */
-
-void swap(int *a, int *b)
-{
-
-	int temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
 }
