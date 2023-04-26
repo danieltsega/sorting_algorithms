@@ -1,6 +1,23 @@
 #include "sort.h"
 
 /**
+ * swap - a swap function
+ * @a: a pointer
+ * @b: another pointer
+ * Return: no return
+ */
+
+void swap(int *a, int *b)
+{
+
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+/**
  * quickSortAlgo - a quick sort algorithm
  * function
  *
@@ -15,7 +32,6 @@ void quickSortAlgo(int *array, int low, int high, int size)
 {
 
 	int pivot, i, j;
-	int temp;
 
 	if (low < high)
 	{
@@ -31,9 +47,7 @@ void quickSortAlgo(int *array, int low, int high, int size)
 				if (j != i)
 				{
 
-					temp = array[j];
-					array[j] = array[i];
-					array[i] = temp;
+					swap(&array[i], &array[j]);
 					print_array(array, size);
 				}
 				i++;
@@ -42,9 +56,7 @@ void quickSortAlgo(int *array, int low, int high, int size)
 		if (i != pivot && array[i] != array[pivot])
 		{
 
-			temp = array[i];
-			array[i] = array[pivot];
-			array[pivot] = temp;
+			swap(&array[i], &array[pivot]);
 			print_array(array, size);
 		}
 		quickSortAlgo(array, low, i - 1, size);
