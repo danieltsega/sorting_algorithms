@@ -1,26 +1,6 @@
 #include "sort.h"
 
 /**
- * quick_sort - a fuction for the quick
- * sort algorithm
- *
- * @array: a pointer to an array
- * @size: size of the array
- * Return: no return
- */
-
-void quick_sort(int *array, size_t size)
-{
-
-	if (size >= 2)
-	{
-
-		quickSortAlgo(array, 0, size - 1, size);
-	}
-
-}
-
-/**
  * quickSortAlgo - a quick sort algorithm
  * function
  *
@@ -70,4 +50,25 @@ void quickSortAlgo(int *array, int low, int high, int size)
 		quickSortAlgo(array, low, i - 1, size);
 		quickSortAlgo(array, i + 1, high, size);
 	}
+}
+
+
+/**
+ * quick_sort - a fuction for the quick
+ * sort algorithm
+ *
+ * @array: a pointer to an array
+ * @size: size of the array
+ * Return: no return
+ */
+
+void quick_sort(int *array, size_t size)
+{
+
+	if (size >= 2)
+	{
+
+		quickSortAlgo(array, 0, size - 1, size);
+	}
+
 }
